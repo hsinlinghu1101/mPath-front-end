@@ -22,7 +22,7 @@ export class Login extends Component {
       }
     
     
-      handleSubmit = (e) => {
+      handleLogin = (e) => {
         e.preventDefault();
         this.setState({
           error: null,
@@ -56,7 +56,7 @@ export class Login extends Component {
     render() {
         return (
             <div>
-                 <form>
+                 <form onSubmit={this.handleLogin}>
                    <label>Your Name</label>
                    <input type="text" name="user_name" />
                    <br></br>

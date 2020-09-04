@@ -8,7 +8,6 @@ export class LandingPage extends Component {
     render() {
         return (
             <div>
-              <h1>We're here for you</h1>
               <img className='landingImg' src={landing} alt="landing" />
               <p>Sometimes, you just need to rant. Or cry. Or spill the tea. Whatever it is you need, we’re here for you, 
                   all the time, every time. With personalized 1:1 attention and resources galore, we want to make sure you feel supported, 

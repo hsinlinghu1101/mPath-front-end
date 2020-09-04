@@ -48,16 +48,16 @@ import AuthApiService from '../../services/auth-api-service'
                <form onSubmit={this.handleNewUser}>
                {error && <p>{error}</p>}
                    <label>Your Name</label>
-                   <input type="text" name="user_name" /><br></br>
+                   <input type="text" name="user_name" required/><br></br>
                    <label>Your Email</label>
-                   <input type="email" name="user_email" /><br></br>
-                   <select name="user_gender">
+                   <input type="email" name="user_email" required/><br></br>
+                   <select name="user_gender" required>
                        <option >Your Gender</option>
                       <option value="1">Female</option>
                       <option value="2">Male</option>
                    </select>
                    <br></br>
-                   <select name="user_age">
+                   <select name="user_age" required>
                         <option >Your Age</option>
                         <option value="1">14-18</option>
                         <option value="2">19-29</option>
@@ -67,9 +67,9 @@ import AuthApiService from '../../services/auth-api-service'
                    </select>
                    <br></br>
                    <label>Password</label>
-                   <input type="password" name="password" />
+                   <input type="password" name="password" required/>
                    <br></br>
-                   <checkbox>term of conditions</checkbox>
+                   <input type="checkbox" required />term of conditions
                    <br></br>
                    <button type="submit">Submit</button>
                    <br></br>

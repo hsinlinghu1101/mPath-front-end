@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Home from './Home'
 export class HomeRoute extends Component {
     static defaultProps = {
         history: {
@@ -15,12 +15,7 @@ export class HomeRoute extends Component {
     }*/
     render() {
         return (
-            <div>
-               <form>
-               <button>I want to Listen</button> 
-               <button>I have things to say</button> 
-               </form>
-            </div>
+            <Home/>
         )
     }
 }
