@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Home from './Home'
+import MPathContext from '../../context/MPathContext'
+
 export class HomeRoute extends Component {
     static defaultProps = {
         history: {
@@ -7,15 +9,13 @@ export class HomeRoute extends Component {
         }
     }
 
-   /* handleSubmitData = (data) => {
-
-        const { user_id } = this.props.match.params
-        const { history } = this.props
-        history.push(`/data/${user_id}`)
-    }*/
+    static contextType = MPathContext
     render() {
-        return (
+        return ( 
+            <div>
+            
             <Home/>
+            </div>
         )
     }
 }

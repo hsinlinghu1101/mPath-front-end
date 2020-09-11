@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
-
+import MPathContext from '../../context/MPathContext'
 export class Login extends Component {
+
+  static contextType = MPathContext
     static defaultProps = {
         onLoginSuccess: () => { }
       };
@@ -42,6 +44,7 @@ export class Login extends Component {
             TokenService.saveAuthToken(data.authToken)
             user_name.value = ''
             password.value = ''
+            this.context.processLogin(data.authToken)
             this.props.onLoginSuccess(data.user_id)
           })
     
