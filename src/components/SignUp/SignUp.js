@@ -57,14 +57,15 @@ import AuthApiService from '../../services/auth-api-service'
                       <option value="2">Male</option>
                    </select>
                    <br></br>
-                   <select name="user_age" required>
-                        <option >Your Age</option>
-                        <option value="1">14-18</option>
-                        <option value="2">19-29</option>
-                        <option value="3">30-49</option>
-                        <option value="4">50-64</option>
-                        <option value="5">65 and above</option>
-                   </select>
+                   <select name='user_age' required>
+                        <option id='age'>Your Age</option>
+                        <option id='age' value='1'>14-18 years old</option>
+                        <option id='age' value='2'>19-29 years old</option>
+                        <option id='age' value='3'>30-39 years old</option>
+                        <option id='age' value='4'>40-49 years old</option>
+                        <option id='age' value='5'>50-59 years old</option>
+                        <option id='age' value='6'>above 60 years old</option>
+                </select>
                    <br></br>
                    <label>Password</label>
                    <input type="password" name="password" required/>

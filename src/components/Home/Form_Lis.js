@@ -4,22 +4,22 @@ export class Form_Lis extends Component {
 
     AddListener = (event) => {
         event.preventDefault();
-        const { emotion, topic, lis_gender, lis_age, webcam } = event.target
+        const { emotion, topic, spe_gender, spe_age, webcam } = event.target
 
         this.setState({ error: null })
         ListenersApiService.postUser({
             emotion: Number(emotion.value),
             topic:Number(topic.value),
-            lis_gender:Number(lis_gender.value),
-            lis_age: Number(lis_age.value),
+            spe_gender:Number(spe_gender.value),
+            spe_age: Number(spe_age.value),
             webcam: webcam.value
         })
 
             .then(user => {
                 emotion.value = ''
                 topic.value = ''
-                lis_gender.value = ''
-                lis_age.value = ''
+                spe_gender.value = ''
+                spe_age.value = ''
                 webcam.value = ''
                 this.props.onRegisterationSuccess()
             })
@@ -56,11 +56,11 @@ export class Form_Lis extends Component {
                </section>
                <h3 className="question">I'm willing to pair with</h3>
                <label className="question"></label>
-               <select name='lis_gender' id='lis_gender' required>
+               <select name='spe_gender' id='spe_gender' required>
                         <option id='sex'>Sex</option>
-                        <option id='sex' value='lis_male'>Male</option>
-                        <option id='sex' value='lis_female'>Female</option>
-                        <option id='sex' value='lis_mf'>Doesn't matter to me</option>
+                        <option id='sex' value='spe_male'>Male</option>
+                        <option id='sex' value='spe_female'>Female</option>
+                        <option id='sex' value='spe_mf'>Doesn't matter to me</option>
                </select>
                <label className="question"></label>
                <select name='lis_age' id='lis_age' required>

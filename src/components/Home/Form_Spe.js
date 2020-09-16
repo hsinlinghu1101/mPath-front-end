@@ -28,11 +28,11 @@ export class Form_Spe extends Component {
                </section>
                <h3 className="question">Looking for my listener</h3>
                <label className="question"></label>
-               <select name='spe_gender' id='spe_gender' required>
+               <select name='lis_gender' id='lis_gender' required>
                         <option id='sex'>Sex</option>
-                        <option id='sex' value='Lis_male'>Male</option>
-                        <option id='sex' value='Lis_female'>Female</option>
-                        <option id='sex' value='Lis_mf'>Doesn't matter to me</option>
+                        <option id='sex' value='lis_male'>Male</option>
+                        <option id='sex' value='lis_female'>Female</option>
+                        <option id='sex' value='lis_mf'>Doesn't matter to me</option>
                </select>
                <label className="question"></label>
                <select name='spe_age' id='spe_age' required>
