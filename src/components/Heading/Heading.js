@@ -19,7 +19,8 @@ class Heading extends Component {
                 onClick={this.handleLogoutClick}
                 to='/login'>
                 Logout
-              </Link>  
+              </Link> 
+              {this.context.processLogin && <Link to={'/user/:user_id'}>Home</Link>} 
           </div>
         )
       }

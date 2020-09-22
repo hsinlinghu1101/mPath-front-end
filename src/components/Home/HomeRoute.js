@@ -8,13 +8,16 @@ export class HomeRoute extends Component {
             push: () => { }
         }
     }
-
+    handlePairsSuccess=()=>{
+        const { history }= this.props
+        history.push(`/chatting-room`)
+    }
     static contextType = MPathContext
     render() {
         return ( 
             <div>
             
-            <Home/>
+            <Home handlePairsSuccess={this.handlePairsSuccess}/>
             </div>
         )
     }

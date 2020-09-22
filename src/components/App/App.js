@@ -4,6 +4,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import SignUpRoute from '../SignUp/SignUpRoute'
 import LoginRoute from '../Login/LoginRoute'
 import HomeRoute from '../Home/HomeRoute'
+import ChattingRoom from '../ChattingRoom/ChattingRoom'
 import Heading from '../Heading/Heading'
 import './App.css';
 
@@ -30,6 +31,7 @@ export class App extends Component{
         <Route  path='/login' render={(props)=><LoginRoute onUserNameChange={this.onUserNameChange} {...props}/>}/>
         <Route path='/user/:user_id' render={(routerProps)=><HomeRoute match={routerProps.match} 
         history={routerProps.history} name={this.state.user_name}/>}/>
+        <Route path='/chatting-room' component={ChattingRoom}/>
       </Switch>
     </div>
   );

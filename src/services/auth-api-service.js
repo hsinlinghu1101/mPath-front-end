@@ -30,6 +30,7 @@ const AuthApiService ={
        :res.json()
      )
   },
+  
 }
 
 export default AuthApiService;

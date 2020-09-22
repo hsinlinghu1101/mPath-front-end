@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Form_Lis from './Form_Lis'
-import Form_Spe from './Form_Spe'
+import FormLis from './FormLis'
+import FormSpe from './FormSpe'
+import MPathContext from '../../context/MPathContext'
 export class Home extends Component {
-    state={
+    /*state={
         listener:false,
         speaker:false
-    }
+    }*/
+    static contextType = MPathContext
     handleListener=()=>{
        this.setState({
            listener:true,
@@ -25,8 +27,8 @@ export class Home extends Component {
                
                <button onClick={this.handleListener}>I want to Listen</button> 
                <button onClick={this.handleSpeaker}>I have things to share</button> 
-               {this.state.speaker && <Form_Spe/>}
-               {this.state.listener && <Form_Lis/>}
+               {this.context.speaker && <FormSpe handlePairsSuccess={this.props.handlePairsSuccess}/>}
+               {this.context.listener && <FormLis handlePairsSuccess={this.props.handlePairsSuccess}/>}
               
             
             </div>

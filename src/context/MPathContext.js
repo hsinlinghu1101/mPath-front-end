@@ -3,6 +3,8 @@ import TokenService from '../services/token-service'
 
 const MPathContext = React.createContext({
   user: {},
+  speaker:false,
+  listener:false,
   error: null,
   setError: () => {},
   clearError: () => {},
@@ -62,6 +64,8 @@ export class MPathProvider extends Component {
   render() {
     const value = {
       user: this.state.user,
+      speaker:this.state.speaker,
+      listener:this.state.listener,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,

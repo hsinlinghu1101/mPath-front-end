@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ListenersApiService from '../../services/listener-api-service'
+import PairsApiService from '../../services/pairs-api-service'
 export class Form_Lis extends Component {
 
     AddListener = (event) => {
@@ -7,7 +7,7 @@ export class Form_Lis extends Component {
         const { emotion, topic, spe_gender, spe_age, webcam } = event.target
 
         this.setState({ error: null })
-        ListenersApiService.postUser({
+        PairsApiService.postListener({
             emotion: Number(emotion.value),
             topic:Number(topic.value),
             spe_gender:Number(spe_gender.value),
@@ -21,7 +21,7 @@ export class Form_Lis extends Component {
                 spe_gender.value = ''
                 spe_age.value = ''
                 webcam.value = ''
-                this.props.onRegisterationSuccess()
+                this.props.handlePairsSuccess()
             })
             .catch(res => {
                 this.setState({

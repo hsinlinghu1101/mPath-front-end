@@ -1,6 +1,34 @@
 import React, { Component } from 'react'
+import PairsApiService from '../../services/pairs-api-service'
 
 export class Form_Spe extends Component {
+    AddSpeaker = (event) => {
+        event.preventDefault();
+        const { emotion, topic, lis_gender, lis_age, webcam } = event.target
+
+        this.setState({ error: null })
+        PairsApiService.postSpeaker({
+            emotion: Number(emotion.value),
+            topic:Number(topic.value),
+            lis_gender:Number(lis_gender.value),
+            lis_age: Number(lis_age.value),
+            webcam: webcam.value
+        })
+
+            .then(user => {
+                emotion.value = ''
+                topic.value = ''
+                lis_gender.value = ''
+                lis_age.value = ''
+                webcam.value = ''
+                this.props.handlePairsSuccess()
+            })
+            .catch(res => {
+                this.setState({
+                    error: res.error
+                })
+            })
+    }
     render() {
         return (
             <form className="form cf" >
