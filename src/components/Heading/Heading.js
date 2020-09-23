@@ -20,7 +20,7 @@ class Heading extends Component {
                 to='/login'>
                 Logout
               </Link> 
-              {this.context.processLogin && <Link to={'/user/:user_id'}>Home</Link>} 
+              {this.context.processLogin && <Link to={`/user/${this.context.user.id}`}>Home</Link>} 
           </div>
         )
       }

@@ -6,6 +6,8 @@ const MPathContext = React.createContext({
   speaker:false,
   listener:false,
   error: null,
+  setListener:()=>{},
+  setSpeaker:()=>{},
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -18,7 +20,7 @@ export default MPathContext
 export class MPathProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, error: null }
+    const state = { user: {}, speaker: false, listener: false, error: null }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -44,7 +46,20 @@ export class MPathProvider extends Component {
   setUser = user => {
     this.setState({ user })
   }
-
+  
+  setListener=()=>{
+    this.setState({
+        listener:true,
+        speaker:false
+    })
+    
+ }
+ setSpeaker=()=>{
+     this.setState({
+         speaker:true,
+         listener:false
+     })
+ }
 
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
@@ -53,7 +68,6 @@ export class MPathProvider extends Component {
       id: jwtPayload.user_id,
       user_name: jwtPayload.sub
     })
-    console.log(123)
   }
 
   processLogout = () => {
@@ -67,6 +81,8 @@ export class MPathProvider extends Component {
       speaker:this.state.speaker,
       listener:this.state.listener,
       error: this.state.error,
+      setListener:this.setListener,
+      setSpeaker: this.setSpeaker,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,

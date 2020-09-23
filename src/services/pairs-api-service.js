@@ -43,7 +43,7 @@ const PairsApiService ={
       )
   },
   getSpeaker(){
-    return fetch(`${config.API_ENDPOINT}/pairs/speakers`, {
+    return fetch(`${config.API_ENDPOINT}/pairs/listeners`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

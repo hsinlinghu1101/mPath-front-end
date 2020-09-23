@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PairsApiService from '../../services/pairs-api-service'
-export class Form_Lis extends Component {
+export class FormLis extends Component {
 
     AddListener = (event) => {
         event.preventDefault();
@@ -58,12 +58,12 @@ export class Form_Lis extends Component {
                <label className="question"></label>
                <select name='spe_gender' id='spe_gender' required>
                         <option id='sex'>Sex</option>
-                        <option id='sex' value='spe_male'>Male</option>
-                        <option id='sex' value='spe_female'>Female</option>
-                        <option id='sex' value='spe_mf'>Doesn't matter to me</option>
+                        <option id='sex' value='1'>Female</option>
+                        <option id='sex' value='2'>Male</option>
+                        <option id='sex' value='3'>Doesn't matter to me</option>
                </select>
                <label className="question"></label>
-               <select name='lis_age' id='lis_age' required>
+               <select name='spe_age' id='spe_age' required>
                         <option id='age'>find your pair's age</option>
                         <option id='age' value='1'>14-18 years old</option>
                         <option id='age' value='2'>19-29 years old</option>
@@ -88,4 +88,4 @@ export class Form_Lis extends Component {
     }
 }
 
-export default Form_Lis
+export default FormLis

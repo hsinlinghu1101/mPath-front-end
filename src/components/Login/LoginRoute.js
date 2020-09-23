@@ -17,7 +17,7 @@ handleLoginSuccess=(user_id)=>{
 
 render(){
     return(
-        <Login  onUserNameChange={this.props.onUserNameChange} onLoginSuccess={this.handleLoginSuccess}/>
+        <Login  onLoginSuccess={this.handleLoginSuccess}/>
         
     )
 }

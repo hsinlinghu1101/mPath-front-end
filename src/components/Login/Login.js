@@ -13,15 +13,7 @@ export class Login extends Component {
       state = {
         error: null,
         loading: false,
-        user_name: ''
       };
-    
-      NameChange = (e) => {
-        this.props.onUserNameChange(e.target.value)
-        this.setState({
-          user_name: e.target.value
-        })
-      }
     
     
       handleLogin = (e) => {
@@ -33,7 +25,6 @@ export class Login extends Component {
     
         const { user_name, password } = e.target
     
-        this.props.onUserNameChange(this.state.user_name)
         AuthApiService.postLogin({
           user_name: user_name.value,
           password: password.value

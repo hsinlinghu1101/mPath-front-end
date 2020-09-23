@@ -14,12 +14,7 @@ export class App extends Component{
     user_name:localStorage.user_name || ''
   };
   
-  onUserNameChange=(name)=>{
-    localStorage.user_name= name
-    this.setState({
-      user_name:name
-    })
-  };
+  
   
   render(){ 
   return (
@@ -28,7 +23,7 @@ export class App extends Component{
       <Switch>
         <Route exact path='/' component={LandingPage}/>
         <Route  path='/register' component={SignUpRoute}/>
-        <Route  path='/login' render={(props)=><LoginRoute onUserNameChange={this.onUserNameChange} {...props}/>}/>
+        <Route  path='/login' component={LoginRoute} />
         <Route path='/user/:user_id' render={(routerProps)=><HomeRoute match={routerProps.match} 
         history={routerProps.history} name={this.state.user_name}/>}/>
         <Route path='/chatting-room' component={ChattingRoom}/>
