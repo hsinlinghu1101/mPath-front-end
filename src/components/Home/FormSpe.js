@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 import PairsApiService from '../../services/pairs-api-service'
+import MPathContext from '../../context/MPathContext'
 
 export class FormSpe extends Component {
+    static contextType = MPathContext
     AddSpeaker = (event) => {
         event.preventDefault();
         const { emotion, topic, lis_gender, lis_age, webcam } = event.target
-
+        
         this.setState({ error: null })
         PairsApiService.postSpeaker({
             emotion: Number(emotion.value),
             topic:Number(topic.value),
             lis_gender:Number(lis_gender.value),
             lis_age: Number(lis_age.value),
-            webcam: webcam.value
+            webcam: webcam.value,
+            user_id: this.props.user_id
         })
-
+        .then(data=>{
+            this.context.setmyPair(data)
+        })
             .then(user => {
                 emotion.value = ''
                 topic.value = ''
@@ -31,27 +36,27 @@ export class FormSpe extends Component {
     }
     render() {
         return (
-            <form className="form cf" >
+            <form className="form cf" onSubmit={this.AddSpeaker}>
             <section className="feeling cf"> 
                <h3 className="question">How are you feeling today?</h3> 
-               <input type="radio" name="radio1" id="amazing" value="1"/>
+               <input type="radio" name="emotion" id="amazing" value="1"/>
                <label className="four col" htmlFor="amazing">Amazing</label>
-                <input type="radio" name="radio1" id="good" value="2" />
+                <input type="radio" name="emotion" id="good" value="2" />
                 <label className="four col" htmlFor="good">Good</label>
-                <input type="radio" name="radio1" id="okay" value="3"/>
+                <input type="radio" name="emotion" id="okay" value="3"/>
                 <label className="four col" htmlFor="okay">Okay</label>
-                <input type="radio" name="radio1" id="cbb" value="4"/>
+                <input type="radio" name="emotion" id="cbb" value="4"/>
                 <label className="four col" htmlFor="cbb">Could be Better</label>
                 </section>
                 <section className="reason cf">
                <h3 className="question" >What topic you'd like to talk?</h3> 
-               <input type="radio" name="radio2" id="career" value="1" />
+               <input type="radio" name="topic" id="career" value="1" />
                <label className=" four col" htmlFor="career">My Career</label>
-               <input type="radio" name="radio2" id="family" value="2" />
+               <input type="radio" name="topic" id="family" value="2" />
                <label className=" four col" htmlFor="family">My Family</label>
-               <input type="radio" name="radio2" id="academic" value="3" />
+               <input type="radio" name="topic" id="academic" value="3" />
                <label className=" four col" htmlFor="academic">My Academic</label>
-               <input type="radio" name="radio2" id="others" value="4" />
+               <input type="radio" name="topic" id="others" value="4" />
                <label className="four col" htmlFor="others">Others</label>
                </section>
                <h3 className="question">Looking for my listener</h3>
@@ -76,9 +81,9 @@ export class FormSpe extends Component {
                
                <section className="group cf">
                <h3 className="question">Web camera</h3>
-               <input type="radio" name="radio3" id="on" value="on" required/>
+               <input type="radio" name="webcam" id="on" value="on" required/>
                <label className="four col" htmlFor="on">turn on</label>
-               <input type="radio" name="radio3" id="off" value="off" required/>
+               <input type="radio" name="webcam" id="off" value="off" required/>
                <label className="four col" htmlFor="off">turn off</label><br></br>
                </section>
                <button type="submit" className="btn sub">Submit</button>

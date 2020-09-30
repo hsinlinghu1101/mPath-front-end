@@ -11,10 +11,8 @@ export class Home extends Component {
             <div>
                <button onClick={this.context.setListener}>I want to Listen</button> 
                <button onClick={this.context.setSpeaker}>I have things to share</button> 
-               {this.context.speaker && <FormSpe handlePairsSuccess={this.props.handlePairsSuccess}/>}
-               {this.context.listener && <FormLis handlePairsSuccess={this.props.handlePairsSuccess}/>}
-              
-            
+               {this.context.speaker && <FormSpe handlePairsSuccess={this.props.handlePairsSuccess} user_id={this.context.user.id}/>}
+               {this.context.listener && <FormLis handlePairsSuccess={this.props.handlePairsSuccess} user_id={this.context.user.id}/>}          
             </div>
         )
     }

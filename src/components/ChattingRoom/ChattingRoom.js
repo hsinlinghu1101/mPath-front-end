@@ -4,22 +4,24 @@ import MPathContext from '../../context/MPathContext'
 
 export class ChattingRoom extends Component {
     static contextType = MPathContext
-    componentDidMount(){
+    
+   /* componentDidMount(){
         if(this.context.listener){
-            PairsApiService.getSpeaker()
-              .then(res => console.log(res))
+            PairsApiService.getSpeaker(topic, spe_gender, spe_age)
+              .then(res => this.setState({pair:res}))
               .catch(this.context.error)
         }
         if(this.context.speaker){
-            PairsApiService.getListener()
-              .then(res => console.log(res))
+            PairsApiService.getListener(topic, lis_gender, lis_age)
+              .then(res => this.setState({pair:res}))
               .catch(this.context.error)
         }
-    }
+    }*/
     
     render() {
         return (
             <div>
+                <h2>{this.context.pair}</h2>
                 
             </div>
         )

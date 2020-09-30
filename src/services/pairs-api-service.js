@@ -1,5 +1,5 @@
 import config from '../config';
-
+import TokenService from './token-service'
 const PairsApiService ={
   postListener(listenerInfo){
     return fetch(`${config.API_ENDPOINT}/pairs/listeners`, {
@@ -30,10 +30,11 @@ const PairsApiService ={
       )
   },
   getListener(){
-    return fetch(`${config.API_ENDPOINT}/pairs/speakers`, {
+    return fetch(`${config.API_ENDPOINT}/pairs/listeners`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>
@@ -43,10 +44,11 @@ const PairsApiService ={
       )
   },
   getSpeaker(){
-    return fetch(`${config.API_ENDPOINT}/pairs/listeners`, {
+    return fetch(`${config.API_ENDPOINT}/pairs/speakers`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>

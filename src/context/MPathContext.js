@@ -3,11 +3,13 @@ import TokenService from '../services/token-service'
 
 const MPathContext = React.createContext({
   user: {},
+  myPair:{},
   speaker:false,
   listener:false,
   error: null,
   setListener:()=>{},
   setSpeaker:()=>{},
+  setPair:()=>{},
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -20,7 +22,7 @@ export default MPathContext
 export class MPathProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, speaker: false, listener: false, error: null }
+    const state = { user: {}, speaker: false, listener: false, myPair:{}, error: null }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -46,7 +48,9 @@ export class MPathProvider extends Component {
   setUser = user => {
     this.setState({ user })
   }
-  
+  setmyPair=myPair=>{
+    this.setState({myPair})
+  }
   setListener=()=>{
     this.setState({
         listener:true,
@@ -73,6 +77,10 @@ export class MPathProvider extends Component {
   processLogout = () => {
     TokenService.clearAuthToken()
     this.setUser({})
+    this.setState({
+      speaker:false,
+      listener:false
+  })
   }
 
   render() {
@@ -80,6 +88,7 @@ export class MPathProvider extends Component {
       user: this.state.user,
       speaker:this.state.speaker,
       listener:this.state.listener,
+      myPair: this.state.myPair,
       error: this.state.error,
       setListener:this.setListener,
       setSpeaker: this.setSpeaker,
@@ -88,6 +97,7 @@ export class MPathProvider extends Component {
       setUser: this.setUser,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
+      setmyPair:this.setmyPair
     }
     return (
       <MPathContext.Provider value={value}>
