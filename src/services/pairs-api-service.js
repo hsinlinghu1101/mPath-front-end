@@ -29,8 +29,8 @@ const PairsApiService ={
           : res.json()
       )
   },
-  getListener(){
-    return fetch(`${config.API_ENDPOINT}/pairs/listeners`, {
+  getListener(topic, gender, age){
+    return fetch(`${config.API_ENDPOINT}/pairs/listeners/${topic}/${gender}/${age}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -42,13 +42,14 @@ const PairsApiService ={
           ? res.json().then(e => Promise.reject(e))  
           : res.json()
       )
+      
   },
-  getSpeaker(){
-    return fetch(`${config.API_ENDPOINT}/pairs/speakers`, {
+  getSpeaker(topic, gender, age){
+    return fetch(`${config.API_ENDPOINT}/pairs/speakers`/topic/gender/age, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`
+       'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res =>

@@ -3,6 +3,7 @@ import PairsApiService from '../../services/pairs-api-service'
 import MPathContext from '../../context/MPathContext'
 export class FormLis extends Component {
     static contextType = MPathContext
+    
     AddListener = (event) => {
         event.preventDefault();
         const { emotion, topic, spe_gender, spe_age, webcam } = event.target
@@ -17,7 +18,7 @@ export class FormLis extends Component {
             user_id: this.props.user_id
         })
             .then(data=>{
-                this.context.setmyPair(data)
+                this.context.setPairLis(data)
             })
             .then(user => {
                 emotion.value = ''

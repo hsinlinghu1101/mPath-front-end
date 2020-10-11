@@ -3,7 +3,19 @@ import { Link } from 'react-router-dom'
 import landing from '../../image/landing.jpg'
 import landing2 from '../../image/landing2.jpg'
 import './LandingPage.css';
+import styled from 'styled-components';
 
+const LinkElement = styled.div`
+ a{
+ font-size: 20px;
+ text-decoration: none;
+ color:blue;
+ :hover{
+    font-size: 25px;  
+    color: orange;
+ }
+}
+`
 export class LandingPage extends Component {
     render() {
         return (
@@ -14,7 +26,9 @@ export class LandingPage extends Component {
                   every step of the way.
               </p>
               <h2>Join our community to share your story or support someone by listening</h2>
-              <Link to='/register'>Join Now</Link>
+              <LinkElement>
+               <Link to='/register'>Join Now</Link>
+              </LinkElement>
               <h2>Beyond the Talk</h2>
               <img  className='landing2' src={landing2} alt="landing2" />
               <p >If you loved the one time talk with a stranger and would like to continue improving your mental health journey, 

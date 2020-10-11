@@ -18,7 +18,7 @@ export class FormSpe extends Component {
             user_id: this.props.user_id
         })
         .then(data=>{
-            this.context.setmyPair(data)
+            this.context.setPairSpe(data)
         })
             .then(user => {
                 emotion.value = ''

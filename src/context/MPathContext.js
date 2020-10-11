@@ -3,7 +3,8 @@ import TokenService from '../services/token-service'
 
 const MPathContext = React.createContext({
   user: {},
-  myPair:{},
+  pairLis:{},
+  pairSpe:{},
   speaker:false,
   listener:false,
   error: null,
@@ -22,7 +23,7 @@ export default MPathContext
 export class MPathProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, speaker: false, listener: false, myPair:{}, error: null }
+    const state = { user: {}, speaker: false, listener: false, pairLis:{}, pairSpe:{}, error: null }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -48,8 +49,11 @@ export class MPathProvider extends Component {
   setUser = user => {
     this.setState({ user })
   }
-  setmyPair=myPair=>{
-    this.setState({myPair})
+  setPairLis= pairLis =>{
+    this.setState({pairLis})
+  }
+  setPairSpe= pairSpe =>{
+    this.setState({pairSpe})
   }
   setListener=()=>{
     this.setState({
@@ -88,7 +92,8 @@ export class MPathProvider extends Component {
       user: this.state.user,
       speaker:this.state.speaker,
       listener:this.state.listener,
-      myPair: this.state.myPair,
+      pairLis: this.state.pairLis,
+      pairSpe: this.state.pairSpe,
       error: this.state.error,
       setListener:this.setListener,
       setSpeaker: this.setSpeaker,
@@ -97,7 +102,8 @@ export class MPathProvider extends Component {
       setUser: this.setUser,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
-      setmyPair:this.setmyPair
+      setPairLis:this.setPairLis,
+      setPairSpe:this.setPairSpe
     }
     return (
       <MPathContext.Provider value={value}>

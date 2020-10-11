@@ -10,6 +10,7 @@ export class HomeRoute extends Component {
     }
     handlePairsSuccess=()=>{
         const { history }= this.props
+        
         history.push(`/chatting-room`)
     }
     static contextType = MPathContext
