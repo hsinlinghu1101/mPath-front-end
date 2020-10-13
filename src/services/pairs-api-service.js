@@ -45,7 +45,7 @@ const PairsApiService ={
       
   },
   getSpeaker(topic, gender, age){
-    return fetch(`${config.API_ENDPOINT}/pairs/speakers`/topic/gender/age, {
+    return fetch(`${config.API_ENDPOINT}/pairs/speakers/${topic}/${gender}/${age}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

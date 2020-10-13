@@ -24,6 +24,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+    <script>
+    callFrame = window.DailyIframe.createFrame();
+    callFrame.join({ url: 'https://mpath.daily.co/hello' })
+    </script>
     <title>Mercury</title>
   </head>
   <body>
